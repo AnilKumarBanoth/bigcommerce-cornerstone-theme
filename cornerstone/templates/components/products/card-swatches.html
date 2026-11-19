@@ -1,0 +1,19 @@
+{{#each product.options}}
+    {{#if partial '===' 'swatch'}}
+        <div class="card-swatches" data-swatch-group="{{id}}">
+            {{#each values}}
+                <button type="button"
+                        class="card-swatch-option{{#if @first}} is-active{{/if}}"
+                        data-product-id="{{../../product.id}}"
+                        data-swatch-id="{{id}}"
+                        data-swatch-label="{{label}}"
+                        aria-label="{{label}}"
+                        title="{{label}}"
+                        {{#if data.[0]}}style="background-color: #{{data.[0]}};"{{/if}}
+                        {{#if image}}style="background-image: url('{{getImage image "swatch_option_size"}}');"{{/if}}>
+                    <span class="is-srOnly">{{label}}</span>
+                </button>
+            {{/each}}
+        </div>
+    {{/if}}
+{{/each}}
